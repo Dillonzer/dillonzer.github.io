@@ -20,6 +20,8 @@ body {
 .mainBody {
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .navbar ul {
