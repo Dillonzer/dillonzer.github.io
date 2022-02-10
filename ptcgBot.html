@@ -4,8 +4,9 @@
         <title>Dillonzer | PTCGBot</title>
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" type="image/jpg" href="./images/Logo.png"/>
+        <script src="scripts.js"></script>
     </head>
-<body>
+<body onload="loadSetTable()">
     <div class="topbanner">
         <h1>PTCGBot</h1>
     </div>
@@ -34,74 +35,7 @@
                     <tr><td>!cardhelp</td><td>Links to this website!</td></tr>
                     <tr><td>!setcodes</td><td>Links to this website to show you the set codes!</td></tr>
                 </table>
-                <table style="flex: 1; float:right;">
-                    <tr><th>Set Name</th><th>Set Abbreviation</th></tr>
-                    <tr><td>Fusion Strike</td><td>FST</td></tr>
-                    <tr><td>Celebrations</td><td>CEL</td></tr>
-                    <tr><td>Celebrations: Classic Collection</td><td>CELR</td></tr>
-                    <tr><td>Evolving Skies</td><td>EVS</td></tr>
-                    <tr><td>Chilling Reign</td><td>CRE</td></tr>
-                    <tr><td>Battle Styles</td><td>BST</td></tr>
-                    <tr><td>Shining Fates</td><td>SHF</td></tr>
-                    <tr><td>Vivid Voltage</td><td>VIV</td></tr>
-                    <tr><td>Champion's Path</td><td>CPA</td></tr>
-                    <tr><td>Pokemon Futsal Collection</td><td>PFC</td></tr>
-                    <tr><td>Darkness Ablaze</td><td>DAA</td></tr>
-                    <tr><td>Rebel Clash</td><td>RCL</td></tr>
-                    <tr><td>SWSH Black Star Promos</td><td>PR-SW</td></tr>
-                    <tr><td>Sword & Shield</td><td>SSH</td></tr>
-                    <tr><td>Cosmic Eclipse</td><td>CEC</td></tr>
-                    <tr><td>Hidden Fates</td><td>HIF</td></tr>
-                    <tr><td>Unified Minds</td><td>UNM</td></tr>
-                    <tr><td>Unbroken Bonds</td><td>UNB</td></tr>
-                    <tr><td>Detective Pikachu</td><td>DET</td></tr>
-                    <tr><td>Team Up</td><td>TEU</td></tr>
-                    <tr><td>Lost Thunder</td><td>LOT</td></tr>
-                    <tr><td>Dragon Majesty</td><td>DRM</td></tr>
-                    <tr><td>Celestial Storm</td><td>CES</td></tr>
-                    <tr><td>Forbidden Light</td><td>FLI</td></tr>
-                    <tr><td>Ultra Prism</td><td>UPR</td></tr>
-                    <tr><td>Crimson Invasion</td><td>CIN</td></tr>
-                    <tr><td>Shining Legends</td><td>SLG</td></tr>
-                    <tr><td>Burning Shadows</td><td>BUS</td></tr>
-                    <tr><td>Guardians Rising</td><td>GRI</td></tr>
-                    <tr><td>Sun & Moon</td><td>SUM</td></tr>
-                    <tr><td>SM Black Star Promos</td><td>PR-SM</td></tr>
-                    <tr><td>Evolutions</td><td>EVO</td></tr>
-                    <tr><td>Steam Siege</td><td>STS</td></tr>
-                    <tr><td>Fates Collide</td><td>FCO</td></tr>
-                    <tr><td>Generations</td><td>GEN</td></tr>
-                    <tr><td>BREAKpoint</td><td>BKP</td></tr>
-                    <tr><td>BREAKthrough</td><td>BKT</td></tr>
-                    <tr><td>Ancient Origins</td><td>AOR</td></tr>
-                    <tr><td>Roaring Skies</td><td>ROS</td></tr>
-                    <tr><td>Double Crisis</td><td>DCR</td></tr>
-                    <tr><td>Primal Clash</td><td>PRC</td></tr>
-                    <tr><td>Phantom Forces</td><td>PHF</td></tr>
-                    <tr><td>Furious Fists</td><td>FFI</td></tr>
-                    <tr><td>Flashfire</td><td>FLF</td></tr>
-                    <tr><td>XY</td><td>XY</td></tr>
-                    <tr><td>Kalos Starter Set</td><td>KSS</td></tr>
-                    <tr><td>Legendary Treasures</td><td>LTR</td></tr>
-                    <tr><td>XY Black Star Promos</td><td>PR-XY</td></tr>
-                    <tr><td>Plasma Blast</td><td>PLB</td></tr>
-                    <tr><td>Plasma Freeze</td><td>PLF</td></tr>
-                    <tr><td>Plasma Storm</td><td>PLS</td></tr>
-                    <tr><td>Boundaries Crossed</td><td>BCR</td></tr>
-                    <tr><td>Dragon Vault</td><td>DRV</td></tr>
-                    <tr><td>Dragons Exalted</td><td>DRX</td></tr>
-                    <tr><td>Dark Explorers</td><td>DEX</td></tr>
-                    <tr><td>Next Destinies</td><td>NXD</td></tr>
-                    <tr><td>Noble Victories</td><td>NVI</td></tr>
-                    <tr><td>Emerging Powers</td><td>EPO</td></tr>
-                    <tr><td>Black & White</td><td>BLW</td></tr>
-                    <tr><td>BW Black Star Promos</td><td>PR-BLW</td></tr>
-                    <tr><td>Call of Legends</td><td>CL</td></tr>
-                    <tr><td>Triumphant</td><td>TM</td></tr>
-                    <tr><td>Undaunted</td><td>UD</td></tr>
-                    <tr><td>Unleashed</td><td>UL</td></tr>
-                    <tr><td>HGSS Black Star Promos</td><td>PR-HS</td></tr>
-                    <tr><td>HeartGold & SoulSilver</td><td>HS</td></tr>
+                <table id="ptcgBotSets" style="flex: 1; float:right;">
                 </table>
         </div>
             
