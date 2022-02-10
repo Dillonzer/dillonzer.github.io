@@ -35,13 +35,12 @@ function GetAllSets()
                     var cell2 = newRow.insertCell(1);
                     cell1.innerHTML = allSets[i].Name
                     cell2.innerHTML = allSets[i].PTCGO_Code
-                }
-                var header = setViewTable.createTHead()                
-                var row = header.insertRow(0); 
+                }       
+                var row = setViewTable.insertRow(0); 
                 var head1 = row.insertCell(0);
                 var head2 = row.insertCell(1);
-                head1.innerHTML = "Set Name"
-                head2.innerHTML = "Set Abbreviation"
+                head1.outerHTML = "<th>Set Name</th>"
+                head2.outerHTML = "<th>Set Abbreviation</th>"
                 
             }).catch(err => {
                 console.log(err)
