@@ -7,7 +7,7 @@ function Set(name, code, ptcgo_code, releaseDate)
 }
 
 
-let apiUrl = "https://ptcg-api.herokuapp.com"
+let apiUrl = "https://pkmntcgapi-production.up.railway.app"
 let allSets = [];
 
 function loadSetTable()
