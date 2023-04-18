@@ -89,23 +89,73 @@ body {
     height: 50px;
  }
 
- table {
+ .ptcgbotTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
 }
 
-td, th {
+.ptcgbotTable>td, th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2;}
-tr:hover {background-color: #ddd;}
+.ptcgbotTable>tr:nth-child(even){background-color: #f2f2f2;}
+.ptcgbotTable>tr:hover {background-color: #ddd;}
 
-th {
+.ptcgbotTable>th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: #CD8F00;
   color: white;
+}
+
+.chipSpan {  
+  background-size: 100% 500%; 
+  background-position: center; 
+  border: 2px; 
+  border-style: solid; 
+  font-weight: bold; 
+  border-color: black; 
+  color: white; 
+  -webkit-text-stroke: 1.5px black; 
+  font-size: 25px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  width: 95%;
+  padding-left: 5px;
+  text-align: center;
+}
+
+.folderSpan {
+  background-size: 100% 500%; 
+  background-position: center; 
+  border: 2px; 
+  border-style: solid; 
+  border-color: black; 
+  font-weight: bold; 
+  color: white; 
+  -webkit-text-stroke: 1.5px black; 
+  font-size: 25px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  width: 80%;
+  padding-left: 5px;
+  text-align: center;
+}
+
+.folderCount {
+  border: 2px; 
+  border-style: solid; 
+  font-weight: bold; 
+  border-color: black; 
+  font-size: 25px;
+  width: 50px;
+  text-align: center;
+}
+
+.bntable{  
+  border-collapse: separate;
+  border-spacing: 0 .2em;
 }
