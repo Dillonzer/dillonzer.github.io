@@ -33,11 +33,11 @@
             <li><a href="https://dillonzer.github.io/Pokemon_Deck_Utils/index.html">Pokemon Deck Utils</a></li>
         </ul>
     </div>
-    <div class="mainBody" style="display: flex;">
-        <div style="display: flex;min-width: 400px;max-width: 400px;">
+    <div class="mainBody" style="display: flex; min-height:60vh; ">
+        <div style="display: flex;min-width: 450px;max-width: 450px;">
             <div style="position: relative;width: 100%;">
                 <label for="gameVersion">Choose your version</label><br>
-                <select id="gameVersion" style="width: 90%";>
+                <select id="gameVersion" style="width: 90%"; onchange="ReloadChips()">
                     <option value="bn1">Battle Network 1</option>
                     <option value="bn2">Battle Network 2</option>
                     <option value="bn3">Battle Network 3</option>
@@ -46,23 +46,26 @@
                     <option value="bn6">Battle Network 6</option>
                 </select>
                 <h3>Chips</h3>
-                <div style="height:500px; overflow-y:scroll" >
+                <div style="height:60vh; overflow-y:scroll" >
                     <table class="bntable" id="chipTable">
                     </table>
                 </div>
             </div>
         </div>
-        <div id="folderDiv" style="display: flex; flex:1;min-width: 500px;max-width: 500px;">
+        <div id="folderDiv" style="display: flex; flex:1;min-width: 550px;max-width: 550px;">
             <div style="position: relative;width: 100%;">
-                <h3 style="padding-left: 50px">Folder</h3>
-                <div id="folderDivTable" style="flex:1; height:550px; overflow-y:scroll;padding-left: 50px;">
+                <h3 style="padding-left: 50px" id="folderHeader">Folder: 0 Chips</h3>
+                <div id="folderDivTable" style="flex:1; height:64vh; overflow-y:scroll;padding-left: 50px;">
                     <table class="bntable" id="folderChipTable">
                     </table>
                 </div>
             </div>
         </div>
+        <div style="display: flex; flex:2; padding-left: 50px">
+            <p><b>NOTE: You can add up to 7 Mega and 2 Giga due to NaviCust options. (Also BN1 / 2 do not have a Navi limitation on this program but it is 5 Navi Chips)</b></p>
+        </div>
     </div>
-    <div class="footer">
+    <div class="footer" >
     <div style="float: right;">
         <a href="https://www.patreon.com/bePatron?u=34112337" title="Become a Patreon"><img class="socialMediaIcons" src="./images/patreon-creators-patreon.png" style="width:40px; height:40px; padding-bottom: 7px;"/></a>  
         <a href="https://discord.gg/SqpJZn2" title="Join us on Discord"><img class="socialMediaIcons" src="./images/Discord-Logo-Color.png"/></a>           
