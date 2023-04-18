@@ -82,7 +82,7 @@ function ReloadChips()
 {
     chips = []
     folderChips = []
-    founderCountDic = []
+    folderCountDic = []
     let folderHead = document.getElementById("folderHeader");
     folderHead.innerHTML = "Folder: 0 Chips" 
     CreateFolderTable()
@@ -369,7 +369,6 @@ function MoveChipToFolder(chip)
 
         if(folderChips[i].Name == chip.Name && folderChips[i].Code == chip.Code)
         {
-           
             folderChips[i].Count = 1 + Number(folderChips[i].Count)
             chipFound = true
             break
@@ -389,7 +388,6 @@ function MoveChipToFolder(chip)
             })
         }
     }  
-
     let stringFolderSize = folderCount + 1
     let folderHead = document.getElementById("folderHeader");
     folderHead.innerHTML = "Folder: " + stringFolderSize + " Chips" 
@@ -455,5 +453,193 @@ function RemoveChip(chip)
         }
     }
 
+    for(let i = 0; i < folderCountDic.length; i++)
+    {
+        if(folderCountDic[i].ChipName == chip.Name)
+        {
+            if(folderCountDic[i].Count >= 1)
+            {
+                folderCountDic[i].Count = Number(folderCountDic[i].Count) - 1
+            }
+
+            if(folderCountDic[i].Count == 0)
+            {
+                folderCountDic.splice(i,1)
+            }
+
+            break
+        }
+    }
+    let folderCount = 0
+    for(let i = 0; i < folderChips.length; i++)
+    {
+        folderCount = folderCount + folderChips[i].Count
+
+    }
+    
+    let folderHead = document.getElementById("folderHeader");
+    folderHead.innerHTML = "Folder: " + folderCount + " Chips" 
+
     CreateFolderTable()
+}
+
+function ExportFolder()
+{   
+    let folderCopy = "## Megaman Battle Network Folder Export ##\n"     
+    let version = document.getElementById("gameVersion")
+    let verText = version.options[version.selectedIndex].text;
+    folderCopy += "## Game: " + verText + " ##\n"
+    let folderCount = 0
+
+    for(let i = 0; i < folderChips.length; i++)
+    {
+        folderCount = folderCount + folderChips[i].Count
+        if(verText != "Battle Network 1")
+        {
+            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory}]\n`
+        }
+        else
+        {
+            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}]\n`
+
+        }
+    }
+
+    folderCopy += "## Folder Count: " + folderCount + " ##\n"
+    folderCopy += "## Created via https://dillonzer.github.io/folder_crafter.html ##"
+
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = folderCopy;
+    dummy.select();
+    navigator.clipboard.writeText(folderCopy);
+    //change to copied
+    document.body.removeChild(dummy);
+
+    alert("Folder copied to clipboard!")
+}
+
+function ImportFolder()
+{
+    let folderImport = document.getElementById("importChipFile").value
+    let splitImport = folderImport.split('\n')
+    let version = ""
+    let versionData = 0
+    let chipsLoaded = false  
+    let versionElement = document.getElementById("gameVersion")
+
+    for(let i = 0; i < splitImport.length; i++)
+    {
+        if(splitImport[i].startsWith("##") && !splitImport[i].startsWith("## Game:"))
+        {continue;}
+
+        if(splitImport[i].startsWith("## Game:"))
+        {
+            versionData = splitImport[i].split(' ')
+            version = "bn" + versionData[4]
+            continue
+        }
+
+        if(!chipsLoaded)
+        {
+            versionElement.selectedIndex=versionData[4]-1
+            ReloadChipsForImport(splitImport)
+            break
+        }        
+    }
+}
+
+function ReloadChipsForImport(splitImport)
+{
+    chips = []
+    folderChips = []
+    folderCountDic = []
+    let folderHead = document.getElementById("folderHeader");
+    folderHead.innerHTML = "Folder: 0 Chips"
+    var version = document.getElementById("gameVersion").value
+    GetAllChipsForTableForImport(version, splitImport)
+}
+
+function GetAllChipsForTableForImport(version, splitImport)
+{
+    var apiCall = apiUrl+"/mmbn/"+version;
+            fetch(apiCall).then(response => {
+            return response.json();
+            }).then(data => {
+                for(index in data) {
+                    var codes = data[index].codes.split(',');
+                    for(code in codes)
+                    {
+                        if(version != "bn1")
+                        {                            
+                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                        }
+                        else
+                        {                            
+                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                        }
+                    }
+                }
+
+                let chipViewTable = document.getElementById("chipTable");
+                chipViewTable.innerHTML = ""
+                for(let i = 0; i < chips.length; i++)
+                {
+                    var rowCount = chipViewTable.rows.length;
+                    var newRow = chipViewTable.insertRow(rowCount);
+                    newRow.onclick = function () {MoveChipToFolder(chips[i])}
+                    var img = document.createElement('img');
+                    var typeImg = GetTypeUrl(chips[i].Type)
+                    img.src = typeImg;
+                    img.style.width = "25px"
+                    img.style.height = "25px"
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    var cell3 = newRow.insertCell(2);
+                    cell1.innerHTML = chips[i].Code
+                    if(version != "bn1")
+                    {
+                        cell2.innerHTML = `${chips[i].Name} [${chips[i].Memory} MB] (${chips[i].Damage})`
+                    }
+                    else
+                    {                        
+                        cell2.innerHTML = `${chips[i].Name} (${chips[i].Damage})`
+                    }
+                    cell2.style.backgroundImage=`url(${chips[i].Image})`
+                    cell3.appendChild(img);
+                    cell2.classList.add('chipSpan')
+                    cell1.classList.add('folderCount')
+                }   
+
+                for(let i = 0; i < splitImport.length; i++)
+                {
+                    if(splitImport[i].startsWith("##"))
+                    {continue;}
+
+                    let chipData = splitImport[i].split(' ')
+                    let chipAmount = chipData[1].replace("(","")
+                    chipAmount = chipAmount.replace(")","")
+
+                    let chipName = chipData[2]
+                    let chipCode = chipData[3].replace("[","")
+                    chipCode = chipCode.replace("]","")
+
+                    for(let j = 0; j < chips.length; j++)
+                    {
+                        if(chipName == chips[j].Name && chipCode == chips[j].Code)
+                        {            
+                            for(let k = 0; k < chipAmount; k++)
+                            {
+                                MoveChipToFolder(chips[j])
+                            }    
+                            break
+                        }
+                    }
+                }
+                
+                CreateFolderTable()
+                
+            }).catch(err => {
+                console.log(err)
+            });
 }

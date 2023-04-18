@@ -61,7 +61,15 @@
                 </div>
             </div>
         </div>
-        <div style="display: flex; flex:2; padding-left: 50px">
+        <div style="padding-left: 50px">            
+            <div><a class="anchorButton" onclick="ExportFolder()">Export Folder</a></div>
+            <br />
+            <div><a class="anchorButton" onclick="ImportFolder()">Import Folder</a></div>
+            <br />
+            <label for="importChipFile">Import Chip Data:</label>
+            <div><textArea id="importChipFile" style="height: 400px; width: 300px;"></textArea></div>
+        </div>
+        <div style="display: flex; flex:3; padding-left: 50px">
             <p><b>NOTE: You can add up to 7 Mega and 2 Giga due to NaviCust options. (Also BN1 / 2 do not have a Navi limitation on this program but it is 5 Navi Chips)</b></p>
         </div>
     </div>
