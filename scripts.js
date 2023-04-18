@@ -496,7 +496,7 @@ function ExportFolder()
         folderCount = folderCount + folderChips[i].Count
         if(verText != "Battle Network 1")
         {
-            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory}]\n`
+            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB]\n`
         }
         else
         {
