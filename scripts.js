@@ -218,9 +218,9 @@ function MoveChipToFolder(chip)
                 }
                 case "bn3":
                 {
-                    if(folderCountDic[i].Count == 5)
+                    if(folderCountDic[i].Count == 4)
                     {
-                        alert("Cannot have more than 5 copies of this chip")
+                        alert("Cannot have more than 4 copies of this chip")
                         return 
                     }
                     
@@ -233,9 +233,9 @@ function MoveChipToFolder(chip)
                 }
                 case "bn4":
                 {
-                    if(folderCountDic[i].Count == 5)
+                    if(folderCountDic[i].Count == 4)
                     {
-                        alert("Cannot have more than 5 copies of this chip")
+                        alert("Cannot have more than 4 copies of this chip")
                         return 
                     }
                     
@@ -248,9 +248,9 @@ function MoveChipToFolder(chip)
                 }
                 case "bn5":
                 {
-                    if(folderCountDic[i].Count == 5)
+                    if(folderCountDic[i].Count == 4)
                     {
-                        alert("Cannot have more than 5 copies of this chip")
+                        alert("Cannot have more than 4 copies of this chip")
                         return 
                     }  
                     
