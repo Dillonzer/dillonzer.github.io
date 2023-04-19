@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <title>Dillonzer | Folder Crafter</title>
+        <title>Dillonzer | FLDRCRFTR </title>
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" type="image/jpg" href="./images/Logo.png"/>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,7 +14,7 @@
     </head>
 <body onload="initChipFolder()">
     <div class="topbanner">
-        <h1>Folder Crafter</h1>
+        <h1>FLDRCRFTR</h1>
     </div>
     <div class="navbar">
         <ul>
@@ -29,7 +29,7 @@
             <li><a href="./pokemontcgtools.html">Pokemon TCG Tools</a></li>
             <li><a href="./ptcgBot.html">PTCGBot</a></li>
             <li><a href="./netnaviexe.html">NetNavi.exe</a></li>
-            <li><a class="active">Folder Crafter</a></li>
+            <li><a class="active">FLDRCRFTR</a></li>
             <li><a href="https://dillonzer.github.io/Pokemon_Deck_Utils/index.html">Pokemon Deck Utils</a></li>
         </ul>
     </div>
@@ -44,7 +44,14 @@
                     <option value="bn4">Battle Network 4</option>
                     <option value="bn5">Battle Network 5</option>
                     <option value="bn6">Battle Network 6</option>
-                </select>
+                </select><br/><br/>
+                <label for="search_chipName">Chip Name: </label>
+                <input type="text" id="search_chipName" style="width: 90%;" onchange="FilterChips()"/>
+                <br/><br/>
+                <label for="search_chipCode">Chip Code: </label>
+                <input type="text" id="search_chipCode" style="width: 69%;" onchange="FilterChips()"/>
+                <br /><br />
+                <a class="anchorButton" onclick="FilterChips()">Filter</a>
                 <h3>Chips</h3>
                 <div style="height:60vh; overflow-y:scroll" >
                     <table class="bntable" id="chipTable">
@@ -76,7 +83,14 @@
                     <li>Right click on the Folder chip you'd like to remove from your Folder!</li>
                     <li>Click Export Folder to Export to a human-readable list for sharing!</li>
                     <li>Paste your export in the Import Chip Data box and then click Improt Folder to easily share and edit other's lists!</li>
-                </ul></div>
+                </ul>
+                <b>Searching</b>
+                <ul>
+                    <li>Type the Chip Name into the Search Bar and click Enter or hit the Filter button</li>
+                    <li>Type the Chip Code into the Search Bar to filter via Chips. You can even do comma seperated for multiple. (ie. A,B)</li>
+                    <li>To reset filters erase all the data in both the boxes and click Enter or Filter</li>
+                </ul>
+            </div>
         </div>
         <div style="padding-left: 50px;">
         <p><b>NOTE: You can add up to 7 Mega and 2 Giga due to NaviCust options. (Also BN1 / 2 do not have a Navi limitation on this program but it is 5 Navi Chips)</b>

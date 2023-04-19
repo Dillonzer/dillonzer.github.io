@@ -80,6 +80,10 @@ function GetAllSets()
 
 function ReloadChips()
 {
+    let filter_chipName = document.getElementById("search_chipName")
+    let filter_chipCode = document.getElementById("search_chipCode")
+    filter_chipName.value=""
+    filter_chipCode.value = ""
     chips = []
     folderChips = []
     folderCountDic = []
@@ -527,6 +531,10 @@ function ImportFolder()
     let versionData = 0
     let chipsLoaded = false  
     let versionElement = document.getElementById("gameVersion")
+    let filter_chipName = document.getElementById("search_chipName")
+    let filter_chipCode = document.getElementById("search_chipCode")
+    filter_chipName.text = ""
+    filter_chipCode.text = ""
 
     for(let i = 0; i < splitImport.length; i++)
     {
@@ -551,6 +559,10 @@ function ImportFolder()
 
 function ReloadChipsForImport(splitImport)
 {
+    let filter_chipName = document.getElementById("search_chipName")
+    let filter_chipCode = document.getElementById("search_chipCode")
+    filter_chipName.value=""
+    filter_chipCode.value = ""
     chips = []
     folderChips = []
     folderCountDic = []
@@ -642,4 +654,106 @@ function GetAllChipsForTableForImport(version, splitImport)
             }).catch(err => {
                 console.log(err)
             });
+}
+
+function FilterChips()
+{
+    let filter_chipName = document.getElementById("search_chipName").value
+    let filter_chipCode = document.getElementById("search_chipCode").value
+    let splitChips = []
+    if(filter_chipCode != undefined)
+    {
+        splitChips = filter_chipCode.split(",")
+    }
+
+    for(let i = 0; i < splitChips.length; i++)
+    {
+        splitChips[i] = splitChips[i].trim();
+    }
+
+    let filteredChips = []
+
+    if((filter_chipName == undefined || filter_chipName == "") && (filter_chipCode == undefined || filter_chipCode == ""))
+    {
+        filteredChips = chips
+    }
+    
+    if(filter_chipName != undefined && filter_chipName != "" && (filter_chipCode == undefined || filter_chipCode == ""))
+    {
+        for(let i = 0; i < chips.length; i++)
+        {
+            if(chips[i].Name.toLowerCase().includes(filter_chipName.toLowerCase()))
+            {
+                filteredChips.push(chips[i])
+            }
+        }
+    }
+    
+    if(filter_chipCode != undefined && filter_chipCode != "" && (filter_chipName == undefined || filter_chipName == ""))
+    {
+        for(let i = 0; i < chips.length; i++)
+        {
+            for(let j = 0; j < splitChips.length; j++)
+            {
+                if(chips[i].Code.toLowerCase().includes(splitChips[j].toLowerCase()))
+                {
+                    filteredChips.push(chips[i])
+                }
+            }
+        }
+    }
+
+    if(filter_chipCode != undefined && filter_chipCode != "" && filter_chipName != undefined && filter_chipName != "")
+    {
+        for(let i = 0; i < chips.length; i++)
+        {
+            if(chips[i].Name.toLowerCase().includes(filter_chipName.toLowerCase()))
+            {
+                for(let j = 0; j < splitChips.length; j++)
+                {
+                    if(chips[i].Code.toLowerCase().includes(splitChips[j].toLowerCase()))
+                    {
+                        filteredChips.push(chips[i])
+                    }
+                }
+            }
+        }
+    }
+
+    GetFilteredChipsForTable(filteredChips)
+
+}
+
+function GetFilteredChipsForTable(filteredChips)
+{  
+    let version = document.getElementById("gameVersion").value
+    let chipViewTable = document.getElementById("chipTable");
+    chipViewTable.innerHTML = ""
+    for(let i = 0; i < filteredChips.length; i++)
+    {
+        var rowCount = chipViewTable.rows.length;
+        var newRow = chipViewTable.insertRow(rowCount);
+        newRow.onclick = function () {MoveChipToFolder(filteredChips[i])}
+        var img = document.createElement('img');
+        var typeImg = GetTypeUrl(filteredChips[i].Type)
+        img.src = typeImg;
+        img.style.width = "25px"
+        img.style.height = "25px"
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        var cell3 = newRow.insertCell(2);
+        cell1.innerHTML = filteredChips[i].Code
+        if(version != "bn1")
+        {
+            cell2.innerHTML = `${filteredChips[i].Name} [${filteredChips[i].Memory} MB] (${filteredChips[i].Damage})`
+        }
+        else
+        {                        
+            cell2.innerHTML = `${filteredChips[i].Name} (${filteredChips[i].Damage})`
+        }
+        cell2.style.backgroundImage=`url(${filteredChips[i].Image})`
+        cell3.appendChild(img);
+        cell2.classList.add('chipSpan')
+        cell1.classList.add('folderCount')
+    }               
 }
