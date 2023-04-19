@@ -263,12 +263,6 @@ function MoveChipToFolder(chip)
                 }
                 case "bn6":
                 {
-                    
-                    if((folderCountDic[i].Category == "Mega" || folderCountDic[i].Category == "Giga") && folderCountDic[i].Count == 1)
-                    {
-                        alert("Cannot have more than 1 of these chips")
-                        return
-                    }
 
                     if(folderCountDic[i].Memory <= 19)
                     {
@@ -296,7 +290,7 @@ function MoveChipToFolder(chip)
                     }
                     else if(folderCountDic[i].Memory <= 49)
                     {
-                        if(folderChips[i].Count == 2)
+                        if(folderCountDic[i].Count == 2)
                         {                            
                             alert("Cannot have more than 2 copies of this chip")
                             return
