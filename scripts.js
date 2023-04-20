@@ -509,7 +509,7 @@ function ExportFolder()
         {
             if(includeLocations)
             {
-                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB] >> Location: ${folderChips[i].Location}\n`
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB] >> Location:${folderChips[i].Location}\n`
             }
             else
             {                
@@ -520,7 +520,7 @@ function ExportFolder()
         {
             if(includeLocations)
             {
-                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] >> Location: ${folderChips[i].Location}\n`
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] >> Location:${folderChips[i].Location}\n`
             }
             else
             {                
