@@ -34,8 +34,8 @@
         </ul>
     </div>
     <div class="mainBody" style="display: flex; min-height:60vh; ">
-        <div style="display: flex;min-width: 450px;max-width: 450px;">
-            <div style="position: relative;width: 100%;">
+        <div style="display: flex;">
+            <div style="position: relative;min-width: 20vh;">
                 <label for="gameVersion">Choose your version</label><br>
                 <select id="gameVersion" style="width: 90%"; onchange="ReloadChips()">
                     <option value="bn1">Battle Network 1</option>
@@ -49,53 +49,56 @@
                 <input type="text" id="search_chipName" style="width: 90%;" onchange="FilterChips()"/>
                 <br/><br/>
                 <label for="search_chipCode">Chip Code: </label>
-                <input type="text" id="search_chipCode" style="width: 69%;" onchange="FilterChips()"/>
+                <input type="text" id="search_chipCode" style="width: 90%;" onchange="FilterChips()"/>
                 <br /><br />
-                <a class="anchorButton" onclick="FilterChips()">Filter</a>
+                <a class="anchorButton" style="width: 100px;"onclick="FilterChips()">Filter</a>
+            </div>
+            <div style="position: relative;min-width: 50vh;max-width: 50vh;">                
                 <h3>Chips</h3>
-                <div style="height:60vh; overflow-y:scroll" >
+                <div style="height:80vh; overflow-y:scroll" >
                     <table class="bntable" id="chipTable">
                     </table>
                 </div>
             </div>
         </div>
-        <div id="folderDiv" style="display: flex; flex:1;min-width: 550px;max-width: 550px;">
-            <div style="position: relative;width: 100%;">
+        <div id="folderDiv" style="display: flex; flex:1; min-width: 50vh;max-width: 50vh">
+            <div style="position: relative;min-width: 50vh;max-width: 50vh">
                 <h3 style="padding-left: 50px" id="folderHeader">Folder: 0 Chips</h3>
-                <div id="folderDivTable" style="flex:1; height:64vh; overflow-y:scroll;padding-left: 50px;">
+                <div id="folderDivTable" style="flex:1; height:80vh; overflow-y:scroll;padding-left: 50px;">
                     <table class="bntable" id="folderChipTable">
                     </table>
                 </div>
             </div>
         </div>
-        <div style="padding-left: 50px">            
-            <div><a class="anchorButton" onclick="ExportFolder()">Export Folder</a></div>
-            <br />
-            <div><a class="anchorButton" onclick="ImportFolder()">Import Folder</a></div>
+        <div style="padding-left: 50px;">            
+            <div style="position: relative;min-width: 20vh;max-width: 50vh">
+                <label for="exportLocations" >Include Chip Location in Export</label>
+                <input type="checkbox" id="exportLocations"/><br /></div>
+                <a class="anchorButton" onclick="ExportFolder()">Export Folder</a>
             <br />
             <label for="importChipFile">Import Chip Data:</label>
             <div><textArea id="importChipFile" style="height: 400px; width: 300px;"></textArea></div>
-            <div>
-                <b>How to Use</b>
-                <ul>
-                    <li>Choose the game you are building for!</li>
-                    <li>Click on the chips you'd like to add to your folder!</li>
-                    <li>Right click on the Folder chip you'd like to remove from your Folder!</li>
-                    <li>Click Export Folder to Export to a human-readable list for sharing!</li>
-                    <li>Paste your export in the Import Chip Data box and then click Improt Folder to easily share and edit other's lists!</li>
-                </ul>
-                <b>Searching</b>
-                <ul>
-                    <li>Type the Chip Name into the Search Bar and click Enter or hit the Filter button</li>
-                    <li>Type the Chip Code into the Search Bar to filter via Chips. You can even do comma seperated for multiple. (ie. A,B)</li>
-                    <li>To reset filters erase all the data in both the boxes and click Enter or Filter</li>
-                </ul>
-            </div>
+            <div><a class="anchorButton" onclick="ImportFolder()">Import Folder</a></div>
+            <br />
         </div>
-        <div style="padding-left: 50px;">
+        <div style="padding-left: 10px;position: relative;min-width: 40vh;max-width: 50vh">
         <p><b>NOTE: You can add up to 7 Mega and 2 Giga due to NaviCust options. (Also BN1 / 2 do not have a Navi limitation on this program but it is 5 Navi Chips)</b>
         <br/><br/>
         <b>Shoutout to <a href="https://n1gp.net/">n1gp</a> and <a href="https://www.therockmanexezone.com/">TREZ</a> for their data that helps power this app</b></p>
+        <b>How to Use</b>
+        <ul>
+            <li>Choose the game you are building for!</li>
+            <li>Click on the chips you'd like to add to your folder!</li>
+            <li>Right click on the Folder chip you'd like to remove from your Folder!</li>
+            <li>Click Export Folder to Export to a human-readable list for sharing!</li>
+            <li>Paste your export in the Import Chip Data box and then click Improt Folder to easily share and edit other's lists!</li>
+        </ul>
+        <b>Searching</b>
+        <ul>
+            <li>Type the Chip Name into the Search Bar and click Enter or hit the Filter button</li>
+            <li>Type the Chip Code into the Search Bar to filter via Chips. You can even do comma seperated for multiple. (ie. A,B)</li>
+            <li>To reset filters erase all the data in both the boxes and click Enter or Filter</li>
+        </ul>
         </div>
     </div>
     <div class="footer" >

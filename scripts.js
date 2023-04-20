@@ -6,7 +6,7 @@ function Set(name, code, ptcgo_code, releaseDate)
     this.ReleaseDate = releaseDate;
 }
 
-function Chip(name, code, memory, type, damage, image, category)
+function Chip(name, code, memory, type, damage, image, category, locations)
 {
     this.Name = name;
     this.Code = code;
@@ -15,9 +15,10 @@ function Chip(name, code, memory, type, damage, image, category)
     this.Damage = damage;
     this.Image = image;
     this.Category = category;
+    this.Locations = locations;
 }
 
-function FolderChip(name, code, memory, type, damage, count, image, category)
+function FolderChip(name, code, memory, type, damage, count, image, category, location)
 {
     this.Name = name;
     this.Code = code;
@@ -27,6 +28,7 @@ function FolderChip(name, code, memory, type, damage, count, image, category)
     this.Count = count;
     this.Image = image;
     this.Category = category;
+    this.Location = location;
 }
 
 
@@ -106,11 +108,11 @@ function GetAllChipsForTable(version)
                     {
                         if(version != "bn1")
                         {                            
-                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
                         }
                         else
                         {                            
-                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
                         }
                     }
                 }
@@ -375,7 +377,17 @@ function MoveChipToFolder(chip)
 
     if(!chipFound)
     {
-        folderChips.push(new FolderChip(chip.Name, chip.Code, chip.Memory, chip.Type, chip.Damage, 1, chip.Image, chip.Category))      
+        let splitLocation = chip.Locations.split("\n")
+        let location = "Unknown"
+        for(let i = 0; i < splitLocation.length; i++)
+        {
+            if(splitLocation[i].toLowerCase().startsWith(`${chip.Code.toLowerCase()}:`))
+            {
+                location = splitLocation[i].substring(2)
+                break;
+            }
+        }
+        folderChips.push(new FolderChip(chip.Name, chip.Code, chip.Memory, chip.Type, chip.Damage, 1, chip.Image, chip.Category, location))      
         if(!chipCountFound)
         {
             folderCountDic.push({
@@ -483,6 +495,7 @@ function RemoveChip(chip)
 
 function ExportFolder()
 {   
+    let includeLocations = document.getElementById("exportLocations").checked
     let folderCopy = "## Megaman Battle Network Folder Export ##\n"     
     let version = document.getElementById("gameVersion")
     let verText = version.options[version.selectedIndex].text;
@@ -494,11 +507,25 @@ function ExportFolder()
         folderCount = folderCount + folderChips[i].Count
         if(verText != "Battle Network 1")
         {
-            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB]\n`
+            if(includeLocations)
+            {
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB] >> Location: ${folderChips[i].Location}\n`
+            }
+            else
+            {                
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] [${folderChips[i].Memory} MB]\n`
+            }
         }
         else
         {
-            folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}]\n`
+            if(includeLocations)
+            {
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}] >> Location: ${folderChips[i].Location}\n`
+            }
+            else
+            {                
+                folderCopy += `- (${folderChips[i].Count}) ${folderChips[i].Name} [${folderChips[i].Code}]\n`
+            }
 
         }
     }
@@ -578,11 +605,11 @@ function GetAllChipsForTableForImport(version, splitImport)
                     {
                         if(version != "bn1")
                         {                            
-                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
                         }
                         else
                         {                            
-                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category));
+                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
                         }
                     }
                 }
