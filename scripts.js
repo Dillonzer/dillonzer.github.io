@@ -496,10 +496,10 @@ function RemoveChip(chip)
 function ExportFolder()
 {   
     let includeLocations = document.getElementById("exportLocations").checked
-    let folderCopy = "## Megaman Battle Network Folder Export ##\n"     
+    let folderCopy = "<< Megaman Battle Network Folder Export >>\n"     
     let version = document.getElementById("gameVersion")
     let verText = version.options[version.selectedIndex].text;
-    folderCopy += "## Game: " + verText + " ##\n"
+    folderCopy += "<< Game: " + verText + " >>\n"
     let folderCount = 0
 
     for(let i = 0; i < folderChips.length; i++)
@@ -530,8 +530,8 @@ function ExportFolder()
         }
     }
 
-    folderCopy += "## Folder Count: " + folderCount + " ##\n"
-    folderCopy += "## Created via https://dillonzer.github.io/folder_crafter.html ##"
+    folderCopy += "<< Folder Count: " + folderCount + " >>\n"
+    folderCopy += "<< Created via https://dillonzer.github.io/folder_crafter.html >>"
 
     var dummy = document.createElement("textarea");
     document.body.appendChild(dummy);
@@ -559,10 +559,10 @@ function ImportFolder()
 
     for(let i = 0; i < splitImport.length; i++)
     {
-        if(splitImport[i].startsWith("##") && !splitImport[i].startsWith("## Game:"))
+        if(splitImport[i].startsWith("<<") && !splitImport[i].startsWith("<< Game:"))
         {continue;}
 
-        if(splitImport[i].startsWith("## Game:"))
+        if(splitImport[i].startsWith("<< Game:"))
         {
             versionData = splitImport[i].split(' ')
             version = "bn" + versionData[4]
@@ -646,7 +646,7 @@ function GetAllChipsForTableForImport(version, splitImport)
 
                 for(let i = 0; i < splitImport.length; i++)
                 {
-                    if(splitImport[i].startsWith("##"))
+                    if(splitImport[i].startsWith("<<"))
                     {continue;}
 
                     let chipData = splitImport[i].split(' ')
