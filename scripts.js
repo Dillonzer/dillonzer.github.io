@@ -98,58 +98,80 @@ function ReloadChips()
 
 function GetAllChipsForTable(version)
 {
-    var apiCall = apiUrl+"/mmbn/"+version;
-            fetch(apiCall).then(response => {
-            return response.json();
-            }).then(data => {
-                for(index in data) {
-                    var codes = data[index].codes.split(',');
-                    for(code in codes)
-                    {
-                        if(version != "bn1")
-                        {                            
-                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
-                        }
-                        else
-                        {                            
-                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
-                        }
-                    }
-                }
+    var jsonFile = ""
+    switch(version)
+    {
+        case "bn1": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn1.json";
+            break;
+        case "bn2": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn2.json";
+            break;
+        case "bn3": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn3.json";
+            break;
+        case "bn4": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn4.json";
+            break;
+        case "bn5": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn5.json";
+            break;
+        case "bn6": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn6.json";
+            break;
+    }
 
-                let chipViewTable = document.getElementById("chipTable");
-                chipViewTable.innerHTML = ""
-                for(let i = 0; i < chips.length; i++)
-                {
-                    var rowCount = chipViewTable.rows.length;
-                    var newRow = chipViewTable.insertRow(rowCount);
-                    newRow.onclick = function () {MoveChipToFolder(chips[i])}
-                    var img = document.createElement('img');
-                    var typeImg = GetTypeUrl(chips[i].Type)
-                    img.src = typeImg;
-                    img.style.width = "25px"
-                    img.style.height = "25px"
-                    var cell1 = newRow.insertCell(0);
-                    var cell2 = newRow.insertCell(1);
-                    var cell3 = newRow.insertCell(2);
-                    cell1.innerHTML = chips[i].Code
-                    if(version != "bn1")
-                    {
-                        cell2.innerHTML = `${chips[i].Name} [${chips[i].Memory} MB] (${chips[i].Damage})`
-                    }
-                    else
-                    {                        
-                        cell2.innerHTML = `${chips[i].Name} (${chips[i].Damage})`
-                    }
-                    cell2.style.backgroundImage=`url(${chips[i].Image})`
-                    cell3.appendChild(img);
-                    cell2.classList.add('chipSpan')
-                    cell1.classList.add('folderCount')
-                }       
-                
-            }).catch(err => {
-                console.log(err)
-            });
+    fetch(jsonFile).then(response => {
+    return response.json();
+    }).then(data => {
+        for(index in data) {
+            var codes = data[index].Codes.split(',');
+            for(code in codes)
+            {
+                if(version != "bn1")
+                {                            
+                    chips.push(new Chip(data[index].Name, codes[code], data[index].Memory, data[index].Element, data[index].Damage, data[index].Image_URL, data[index].Category, data[index].Locations));
+                }
+                else
+                {                            
+                    chips.push(new Chip(data[index].Name, codes[code], null, data[index].Element, data[index].Damage, data[index].Image_URL, data[index].Category, data[index].Locations));
+                }
+            }
+        }
+
+        let chipViewTable = document.getElementById("chipTable");
+        chipViewTable.innerHTML = ""
+        for(let i = 0; i < chips.length; i++)
+        {
+            var rowCount = chipViewTable.rows.length;
+            var newRow = chipViewTable.insertRow(rowCount);
+            newRow.onclick = function () {MoveChipToFolder(chips[i])}
+            var img = document.createElement('img');
+            var typeImg = GetTypeUrl(chips[i].Type)
+            img.src = typeImg;
+            img.style.width = "25px"
+            img.style.height = "25px"
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = chips[i].Code
+            if(version != "bn1")
+            {
+                cell2.innerHTML = `${chips[i].Name} [${chips[i].Memory} MB] (${chips[i].Damage})`
+            }
+            else
+            {                        
+                cell2.innerHTML = `${chips[i].Name} (${chips[i].Damage})`
+            }
+            cell2.style.backgroundImage=`url(${chips[i].Image})`
+            cell3.appendChild(img);
+            cell2.classList.add('chipSpan')
+            cell1.classList.add('folderCount')
+        }       
+        
+    }).catch(err => {
+        console.log(err)
+    });
 }
 
 function GetTypeUrl(type)
@@ -595,86 +617,108 @@ function ReloadChipsForImport(splitImport)
 
 function GetAllChipsForTableForImport(version, splitImport)
 {
-    var apiCall = apiUrl+"/mmbn/"+version;
-            fetch(apiCall).then(response => {
-            return response.json();
-            }).then(data => {
-                for(index in data) {
-                    var codes = data[index].codes.split(',');
-                    for(code in codes)
-                    {
-                        if(version != "bn1")
-                        {                            
-                            chips.push(new Chip(data[index].name, codes[code], data[index].memory, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
-                        }
-                        else
-                        {                            
-                            chips.push(new Chip(data[index].name, codes[code], null, data[index].element, data[index].damage, data[index].image_URL, data[index].category, data[index].locations));
-                        }
-                    }
+    var jsonFile = ""
+    switch(version)
+    {
+        case "bn1": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn1.json";
+            break;
+        case "bn2": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn2.json";
+            break;
+        case "bn3": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn3.json";
+            break;
+        case "bn4": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn4.json";
+            break;
+        case "bn5": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn5.json";
+            break;
+        case "bn6": 
+            jsonFile = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/bnchips/bn6.json";
+            break;
+    }
+
+    fetch(jsonFile).then(response => {
+    return response.json();
+    }).then(data => {
+        for(index in data) {
+            var codes = data[index].Codes.split(',');
+            for(code in codes)
+            {
+                if(version != "bn1")
+                {                           
+                    chips.push(new Chip(data[index].Name, codes[code], data[index].Memory, data[index].Element, data[index].Damage, data[index].Image_URL, data[index].Category, data[index].Locations));
                 }
-
-                let chipViewTable = document.getElementById("chipTable");
-                chipViewTable.innerHTML = ""
-                for(let i = 0; i < chips.length; i++)
-                {
-                    var rowCount = chipViewTable.rows.length;
-                    var newRow = chipViewTable.insertRow(rowCount);
-                    newRow.onclick = function () {MoveChipToFolder(chips[i])}
-                    var img = document.createElement('img');
-                    var typeImg = GetTypeUrl(chips[i].Type)
-                    img.src = typeImg;
-                    img.style.width = "25px"
-                    img.style.height = "25px"
-                    var cell1 = newRow.insertCell(0);
-                    var cell2 = newRow.insertCell(1);
-                    var cell3 = newRow.insertCell(2);
-                    cell1.innerHTML = chips[i].Code
-                    if(version != "bn1")
-                    {
-                        cell2.innerHTML = `${chips[i].Name} [${chips[i].Memory} MB] (${chips[i].Damage})`
-                    }
-                    else
-                    {                        
-                        cell2.innerHTML = `${chips[i].Name} (${chips[i].Damage})`
-                    }
-                    cell2.style.backgroundImage=`url(${chips[i].Image})`
-                    cell3.appendChild(img);
-                    cell2.classList.add('chipSpan')
-                    cell1.classList.add('folderCount')
-                }   
-
-                for(let i = 0; i < splitImport.length; i++)
-                {
-                    if(splitImport[i].startsWith("<<"))
-                    {continue;}
-
-                    let chipData = splitImport[i].split(' ')
-                    let chipAmount = chipData[1].replace("(","")
-                    chipAmount = chipAmount.replace(")","")
-
-                    let chipName = chipData[2]
-                    let chipCode = chipData[3].replace("[","")
-                    chipCode = chipCode.replace("]","")
-
-                    for(let j = 0; j < chips.length; j++)
-                    {
-                        if(chipName == chips[j].Name && chipCode == chips[j].Code)
-                        {            
-                            for(let k = 0; k < chipAmount; k++)
-                            {
-                                MoveChipToFolder(chips[j])
-                            }    
-                            break
-                        }
-                    }
+                else
+                {                            
+                    chips.push(new Chip(data[index].Name, codes[code], null, data[index].Element, data[index].Damage, data[index].Image_URL, data[index].Category, data[index].Locations));
                 }
-                
-                CreateFolderTable()
-                
-            }).catch(err => {
-                console.log(err)
-            });
+            }
+        }
+
+        let chipViewTable = document.getElementById("chipTable");
+        chipViewTable.innerHTML = ""
+        for(let i = 0; i < chips.length; i++)
+        {
+            var rowCount = chipViewTable.rows.length;
+            var newRow = chipViewTable.insertRow(rowCount);
+            newRow.onclick = function () {MoveChipToFolder(chips[i])}
+            var img = document.createElement('img');
+            var typeImg = GetTypeUrl(chips[i].Type)
+            img.src = typeImg;
+            img.style.width = "25px"
+            img.style.height = "25px"
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = chips[i].Code
+            if(version != "bn1")
+            {
+                cell2.innerHTML = `${chips[i].Name} [${chips[i].Memory} MB] (${chips[i].Damage})`
+            }
+            else
+            {                        
+                cell2.innerHTML = `${chips[i].Name} (${chips[i].Damage})`
+            }
+            cell2.style.backgroundImage=`url(${chips[i].Image})`
+            cell3.appendChild(img);
+            cell2.classList.add('chipSpan')
+            cell1.classList.add('folderCount')
+        }   
+
+        for(let i = 0; i < splitImport.length; i++)
+        {
+            if(splitImport[i].startsWith("<<"))
+            {continue;}
+
+            let chipData = splitImport[i].split(' ')
+            let chipAmount = chipData[1].replace("(","")
+            chipAmount = chipAmount.replace(")","")
+
+            let chipName = chipData[2]
+            let chipCode = chipData[3].replace("[","")
+            chipCode = chipCode.replace("]","")
+
+            for(let j = 0; j < chips.length; j++)
+            {
+                if(chipName == chips[j].Name && chipCode == chips[j].Code)
+                {            
+                    for(let k = 0; k < chipAmount; k++)
+                    {
+                        MoveChipToFolder(chips[j])
+                    }    
+                    break
+                }
+            }
+        }
+        
+        CreateFolderTable()
+        
+    }).catch(err => {
+        console.log(err)
+    });
 }
 
 function FilterChips()
