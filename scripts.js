@@ -31,8 +31,6 @@ function FolderChip(name, code, memory, type, damage, count, image, category, lo
     this.Location = location;
 }
 
-
-let apiUrl = "https://pkmntcgapi-production.up.railway.app"
 let allSets = [];
 let chips = [];
 let folderChips = [];
@@ -50,7 +48,7 @@ function initChipFolder()
 
 function GetAllSets()
 {
-    var apiCall = apiUrl+"/api/sets";
+    var apiCall = "https://raw.githubusercontent.com/Dillonzer/dillonzer.github.io/master/data/sets.json";
             fetch(apiCall).then(response => {
             return response.json();
             }).then(data => {
