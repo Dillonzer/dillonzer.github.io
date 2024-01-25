@@ -1,5 +1,18 @@
 [
     {
+        "code": "sv5",
+        "ptcgoCode": "PAF",
+        "name": "Paldean Fates",
+        "series": "Scarlet & Violet",
+        "totalCards": 245,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-01-26",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Paldean%20Fates/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Paldean%20Fates/logo.png"
+    },
+    {
         "code": "sv4",
         "ptcgoCode": "PAR",
         "name": "Paradox Rift",
