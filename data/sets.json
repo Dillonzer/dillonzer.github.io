@@ -1,5 +1,18 @@
 [
     {
+        "code": "sv6",
+        "ptcgoCode": "TEF",
+        "name": "Temporal Forces",
+        "series": "Scarlet & Violet",
+        "totalCards": 218,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-03-22",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Temporal%20Forces/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Temporal%20Forces/logo.png"
+    },
+    {
         "code": "sv5",
         "ptcgoCode": "PAF",
         "name": "Paldean Fates",
