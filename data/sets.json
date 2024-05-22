@@ -1,5 +1,18 @@
 [
     {
+        "code": "sv7",
+        "ptcgoCode": "TWM",
+        "name": "Twilight Masquerade",
+        "series": "Scarlet & Violet",
+        "totalCards": 226,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-05-24",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Twilight%20Masquerade/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Twilight%20Masquerade/logo.png"
+    },
+    {
         "code": "sv6",
         "ptcgoCode": "TEF",
         "name": "Temporal Forces",
