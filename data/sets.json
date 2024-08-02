@@ -1,5 +1,18 @@
 [
     {
+        "code": "sv8",
+        "ptcgoCode": "SHF",
+        "name": "Shrouded Fables",
+        "series": "Scarlet & Violet",
+        "totalCards": 99,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-08-02",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Shrouded%20Fables/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Shrouded%20Fables/logo.png"
+    },
+    {
         "code": "sv7",
         "ptcgoCode": "TWM",
         "name": "Twilight Masquerade",
