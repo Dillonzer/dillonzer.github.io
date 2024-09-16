@@ -1,6 +1,19 @@
 [
     {
-        "code": "sv8",
+        "code": "sv7",
+        "ptcgoCode": "SCR",
+        "name": "Stellar Crown",
+        "series": "Scarlet & Violet",
+        "totalCards": 175,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-09-13",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Stellar%20Crown/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Stellar%20Crown/logo.png"
+    },
+    {
+        "code": "s6.5",
         "ptcgoCode": "SFA",
         "name": "Shrouded Fable",
         "series": "Scarlet & Violet",
@@ -13,7 +26,7 @@
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Shrouded%20Fables/logo.png"
     },
     {
-        "code": "sv7",
+        "code": "sv6",
         "ptcgoCode": "TWM",
         "name": "Twilight Masquerade",
         "series": "Scarlet & Violet",
@@ -26,7 +39,7 @@
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Twilight%20Masquerade/logo.png"
     },
     {
-        "code": "sv6",
+        "code": "sv5",
         "ptcgoCode": "TEF",
         "name": "Temporal Forces",
         "series": "Scarlet & Violet",
@@ -39,7 +52,7 @@
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Temporal%20Forces/logo.png"
     },
     {
-        "code": "sv5",
+        "code": "sv4",
         "ptcgoCode": "PAF",
         "name": "Paldean Fates",
         "series": "Scarlet & Violet",
@@ -52,7 +65,7 @@
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Paldean%20Fates/logo.png"
     },
     {
-        "code": "sv4",
+        "code": "sv3",
         "ptcgoCode": "PAR",
         "name": "Paradox Rift",
         "series": "Scarlet & Violet",
@@ -65,7 +78,7 @@
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Paradox%20Rift/logo.png"
     },
     {
-        "code": "sv35",
+        "code": "sv355",
         "ptcgoCode": "MEW",
         "name": "151",
         "series": "Scarlet & Violet",
