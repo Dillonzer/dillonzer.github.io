@@ -1,5 +1,31 @@
 [
     {
+        "code": "sv9",
+        "ptcgoCode": "PRE",
+        "name": "Prismatic Evolutions",
+        "series": "Scarlet & Violet",
+        "totalCards": 252,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2025-01-17",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Prismatic%20Evolutions/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Prismatic%20Evolutions/logo.png"
+    },
+    {
+        "code": "sv8",
+        "ptcgoCode": "SSP",
+        "name": "Surging Sparks",
+        "series": "Scarlet & Violet",
+        "totalCards": 252,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2024-11-08",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Surging%20Sparks/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Surging%20Sparks/logo.png"
+    },
+    {
         "code": "sv7",
         "ptcgoCode": "SCR",
         "name": "Stellar Crown",
@@ -1974,18 +2000,5 @@
         "releaseDate": "1999-01-09",
         "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Base/symbol.png",
         "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Base/logo.png"
-    },
-    {
-      "code": "sv8",
-      "ptcgoCode": "SSP",
-      "name": "Surging Sparks",
-      "series": "Scarlet & Violet",
-      "totalCards": 252,
-      "standardLegal": true,
-      "expandedLegal": true,
-      "glcLegal": true,
-      "releaseDate": "2024-11-08",
-      "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Surging%20Sparks/symbol.png",
-      "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Surging%20Sparks/logo.png"
     }
 ]
