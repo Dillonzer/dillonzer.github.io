@@ -1,10 +1,23 @@
 [
     {
+        "code": "sv10",
+        "ptcgoCode": "JTG",
+        "name": "Journey Together",
+        "series": "Scarlet & Violet",
+        "totalCards": 190,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2025-03-28",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Journey%20Together/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Journey%20Together/logo.png"
+    },
+    {
         "code": "sv9",
         "ptcgoCode": "PRE",
         "name": "Prismatic Evolutions",
         "series": "Scarlet & Violet",
-        "totalCards": 252,
+        "totalCards": 180,
         "standardLegal": true,
         "expandedLegal": true,
         "glcLegal": true,
