@@ -1,5 +1,18 @@
 [
     {
+        "code": "sv11",
+        "ptcgoCode": "DIR",
+        "name": "Destined Rivals",
+        "series": "Scarlet & Violet",
+        "totalCards": 242,
+        "standardLegal": true,
+        "expandedLegal": true,
+        "glcLegal": true,
+        "releaseDate": "2025-05-29",
+        "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Destined%20Rivals/symbol.png",
+        "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Destined%20Rivals/logo.png"
+    },
+    {
         "code": "sv10",
         "ptcgoCode": "JTG",
         "name": "Journey Together",
