@@ -2054,6 +2054,19 @@
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Black%20Bolt/logo.png"
   },
   {
+    "code": "mep",
+    "ptcgoCode": "MEP",
+    "name": "Mega Evolution Promos",
+    "series": "Mega Evolution",
+    "totalCards": 188,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2025-09-26",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Mega%20Evolution%20Promos/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Mega%20Evolution%20Promos/logo.png"
+  },
+  {
     "code": "me1",
     "ptcgoCode": "MEG",
     "name": "Mega Evolution",
