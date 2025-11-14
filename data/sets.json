@@ -2078,5 +2078,18 @@
     "releaseDate": "2025-09-26",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Mega%20Evolution/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Mega%20Evolution/logo.png"
+  },
+  {
+    "code": "me2",
+    "ptcgoCode": "PFL",
+    "name": "Phantasmal Flames",
+    "series": "Mega Evolution",
+    "totalCards": 130,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2025-11-14",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Phantasmal%20Flames/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Phantasmal%20Flames/logo.png"
   }
 ]
