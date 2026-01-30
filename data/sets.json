@@ -2091,5 +2091,18 @@
     "releaseDate": "2025-11-14",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Phantasmal%20Flames/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Phantasmal%20Flames/logo.png"
+  },
+  {
+    "code": "me2-5",
+    "ptcgoCode": "ASC",
+    "name": "Ascended Heroes",
+    "series": "Mega Evolution",
+    "totalCards": 295,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2026-01-30",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Ascended%20Heroes/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Ascended%20Heroes/logo.png"
   }
 ]
