@@ -2104,5 +2104,18 @@
     "releaseDate": "2026-01-30",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Ascended%20Heroes/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Ascended%20Heroes/logo.png"
+  },
+  {
+    "code": "me3",
+    "ptcgoCode": "POR",
+    "name": "Perfect Order",
+    "series": "Mega Evolution",
+    "totalCards": 124,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2026-03-27",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Perfect%20Order/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Perfect%20Order/logo.png"
   }
 ]
