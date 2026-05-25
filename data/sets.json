@@ -2117,5 +2117,18 @@
     "releaseDate": "2026-03-27",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Perfect%20Order/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Perfect%20Order/logo.png"
+  },
+  {
+    "code": "me4",
+    "ptcgoCode": "CRI",
+    "name": "Chaos Rising",
+    "series": "Mega Evolution",
+    "totalCards": 122,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2026-05-22",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Chaos%20Rising/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Chaos%20Rising/logo.png"
   }
 ]
