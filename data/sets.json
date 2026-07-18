@@ -2130,5 +2130,18 @@
     "releaseDate": "2026-05-22",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Chaos%20Rising/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Chaos%20Rising/logo.png"
+  },
+  {
+    "code": "me5",
+    "ptcgoCode": "PBL",
+    "name": "Pitch Black",
+    "series": "Mega Evolution",
+    "totalCards": 120,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2026-05-22",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Pitch%20Black/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Pitch%20Black/logo.png"
   }
 ]
