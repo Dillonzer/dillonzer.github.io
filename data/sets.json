@@ -2143,5 +2143,18 @@
     "releaseDate": "2026-05-22",
     "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Pitch%20Black/symbol.png",
     "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/Pitch%20Black/logo.png"
+  },
+  {
+    "code": "me5-5",
+    "ptcgoCode": "30C",
+    "name": "30th Celebration",
+    "series": "Mega Evolution",
+    "totalCards": 160,
+    "standardLegal": true,
+    "expandedLegal": true,
+    "glcLegal": true,
+    "releaseDate": "2026-09-17",
+    "symbolUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/30th%20Celebration/symbol.png",
+    "logoUrl": "https://pkmn-tcg-api-images.sfo2.cdn.digitaloceanspaces.com/30th%20Celebration/logo.png"
   }
 ]
